@@ -19,9 +19,12 @@ func main() {
 	// (array[0]からarray[2]まで)
 	fmt.Printf("array[:3]: %v\n", array[:3]) // [1 2 3]
 
+	fmt.Printf("array[1:len(array)]: %v\n", array[1:len(array)]) // [2 3 4 5]
+
 	// (array[0]から最後の一つ手前まで)
 	fmt.Printf("array[:len(array)-1]: %v\n", array[:len(array)-1]) // [1 2 3 4]
 
 	// 全て
-	fmt.Printf("array[:]: %v\n", array[:]) // [1 2 3 4 5]
+	fmt.Printf("array[:]: %v\n", array[:])                       // [1 2 3 4 5]
+	fmt.Printf("array[0:len(array)]: %v\n", array[0:len(array)]) // [1 2 3 4 5]
 }
