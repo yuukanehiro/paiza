@@ -6,3 +6,13 @@ func reverse(array []int) {
 		array[i], array[len(array)-i-1] = array[len(array)-i-1], array[i]
 	}
 }
+
+// target番目にvalueを挿入
+func insertElement(array []int, target int, value int) []int {
+	return append(array[:target-1], append([]int{value}, array[target-1:]...)...)
+}
+
+// target番目の要素を削除
+func eraseElement(array []int, target int) []int {
+	return append(array[:target-1], array[target:]...)
+}
