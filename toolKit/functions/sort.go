@@ -11,3 +11,8 @@ func sortAsc(numbers []int) {
 func sortDesc(numbers []int) {
 	sort.Sort(sort.Reverse(sort.IntSlice(numbers)))
 }
+
+// 辞書順にソート
+func sortStrAsc(strings []string) {
+	sort.Strings(strings)
+}

@@ -11,6 +11,13 @@ import (
 var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
+	intArray := nextLineBySeparator(" ", "int").([]int)
+	targetNumber := intArray[0]
+	targetIndex := targetNumber - 1
+
+	strArray := nextLineBySeparator(" ", "string").([]string)
+
+	fmt.Printf("%s\n", strArray[targetIndex])
 }
 
 // 行を取得してstringで返却
@@ -55,3 +62,16 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 		return nil
 	}
 }
+
+// Q
+// 1 行目に整数 N, M が与えられます。
+// 2 行目に M 個の文字列 s_1, s_2, ..., s_M が半角スペース区切りで与えられます。
+// N 番目の文字列 s_N を出力してください。
+
+// Input
+// 入力例1
+// 3 5
+// a b c d e
+
+// Output
+// c

@@ -11,6 +11,23 @@ import (
 var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
+	intArray := nextLineBySeparator(" ", "int").([]int)
+	targetNumber := intArray[0]
+	targetIndex := targetNumber - 1
+
+	targetWordCount := intArray[2]
+
+	strArray := nextLineBySeparator(" ", "string").([]string)
+	targetWord := strArray[targetIndex]
+
+	fmt.Printf("%s\n", getCharAt(targetWord, targetWordCount))
+}
+
+// i番目の文字を取得
+// 例: getRuneAt("paiza", 4) => "z"
+func getCharAt(s string, i int) string {
+	rs := []rune(s)
+	return string(rs[i-1])
 }
 
 // 行を取得してstringで返却
@@ -55,3 +72,15 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 		return nil
 	}
 }
+
+// Q
+// 1 行目に整数 N, M, L が与えられます。
+// 2 行目に M 個の文字列 s_1, s_2, ..., s_M が半角スペース区切りで与えられます。
+// N 番目の文字列 s_N の L 番目の文字を出力してください。
+
+// Input
+// 3 5 2
+// abc def ghi jkl mno
+
+// Output
+// h

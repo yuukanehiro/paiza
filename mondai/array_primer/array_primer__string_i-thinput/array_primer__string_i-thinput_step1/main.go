@@ -11,6 +11,19 @@ import (
 var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
+	intArray := nextLineBySeparator(" ", "int").([]int)
+	targetNumber := intArray[0]
+	targetIndex := targetNumber - 1
+
+	array := []string{
+		"good",
+		"morning",
+		"paiza",
+		"813",
+		"pa13",
+	}
+
+	fmt.Printf("%s\n", array[targetIndex])
 }
 
 // 行を取得してstringで返却
@@ -55,3 +68,19 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 		return nil
 	}
 }
+
+// Q
+// 整数 N が与えられます。
+// 以下の文字列のうち、N 番目の文字列を出力してください。
+
+// good
+// morning
+// paiza
+// 813
+// pa13
+
+// Input
+// 1
+
+// Output
+// good
