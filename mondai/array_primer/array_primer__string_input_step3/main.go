@@ -11,6 +11,12 @@ import (
 var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
+	_ = nextLine() // 1行目は不要なので読み込みだけして捨てる
+	strArray := nextLineBySeparator(" ", "string").([]string)
+
+	for _, v := range strArray {
+		fmt.Printf("%s\n", v)
+	}
 }
 
 // 行を取得してstringで返却
@@ -55,3 +61,19 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 		return nil
 	}
 }
+
+// Q
+// 1 行目に整数 N が与えられます。
+// 2 行目に N 個の文字列 s_1, s_2, ..., s_Nが半角スペース区切りで与えられます。
+// すべての文字列を改行区切りで出力してください。
+
+// Input
+// 5
+// a b c d e
+
+// Output
+// a
+// b
+// c
+// d
+// e
