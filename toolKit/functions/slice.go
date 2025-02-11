@@ -26,6 +26,20 @@ func getMin(array []int) int {
 	return min
 }
 
+// 配列の平均値を取得
+func getAverage(array []int) float64 {
+	if len(array) == 0 {
+		return 0.0
+	}
+
+	sum := 0
+	for _, v := range array {
+		sum += v
+	}
+
+	return float64(sum) / float64(len(array))
+}
+
 // 配列を逆順にする
 func reverse(array []int) {
 	for i := 0; i < len(array)/2; i++ {
