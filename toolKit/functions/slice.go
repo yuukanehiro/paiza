@@ -13,6 +13,16 @@ func countTargetNumber[T comparable](array []T, targetNumber T) int {
 	return targetCount
 }
 
+// 配列の全ての要素の和を返却
+func sum(array []int) int {
+	sum := 0
+	for _, v := range array {
+		sum += v
+	}
+
+	return sum
+}
+
 // 配列の最大値を取得
 func getMax(array []int) int {
 	max := array[0]
