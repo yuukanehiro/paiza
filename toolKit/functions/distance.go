@@ -6,13 +6,3 @@ package main
 func getManhattanDistance(pointA []int, pointB []int) int {
 	return abs(pointA[0]-pointB[0]) + abs(pointA[1]-pointB[1])
 }
-
-// 絶対値を返却
-// 例) 10 -> 10, -10 -> 10
-func abs(n int) int {
-	if n < 0 {
-		return -n
-	}
-
-	return n
-}

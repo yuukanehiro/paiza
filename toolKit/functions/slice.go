@@ -1,5 +1,18 @@
 package main
 
+// 配列の中に指定した要素が何個あるかをintで返却
+func countTargetNumber[T comparable](array []T, targetNumber T) int {
+	var targetCount int
+
+	for _, v := range array {
+		if targetNumber == v {
+			targetCount++
+		}
+	}
+
+	return targetCount
+}
+
 // 配列の最大値を取得
 func getMax(array []int) int {
 	max := array[0]
@@ -18,7 +31,7 @@ func getMin(array []int) int {
 	min := array[0]
 
 	for _, v := range array {
-		if v < min{
+		if v < min {
 			min = v
 		}
 	}
