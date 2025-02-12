@@ -95,3 +95,17 @@ func removeDuplicate[T comparable](array []T) []T {
 
 	return result
 }
+
+// 配列の要素の種類数を返却
+// 例: getKindCount([]int{1, 2, 3, 2, 1}) => 3
+func getKindCount(array []int) int {
+	seen := make(map[int]bool)
+
+	for _, v := range array {
+		if !seen[v] {
+			seen[v] = true
+		}
+	}
+
+	return len(seen)
+}
