@@ -117,3 +117,17 @@ func getKindCount(array []int) int {
 
 	return len(seen)
 }
+
+// 配列をユニークにする
+func unique(array []int) []int {
+	seen := make(map[int]bool)
+	var res []int
+	for _, v := range array {
+		if !seen[v] {
+			res = append(res, v)
+			seen[v] = true
+		}
+	}
+
+	return res
+}
