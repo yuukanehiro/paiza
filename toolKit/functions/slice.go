@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // 配列の中に指定した要素が何個あるかをintで返却
 func countTargetNumber[T comparable](array []T, targetNumber T) int {
 	var targetCount int
@@ -72,7 +74,13 @@ func reverse(array []int) {
 
 // target番目にvalueを挿入
 func insertElement(array []int, target int, value int) []int {
-	return append(array[:target-1], append([]int{value}, array[target-1:]...)...)
+	// target の範囲チェック
+	if target < 0 || target > len(array) {
+		fmt.Println("Error: target index out of range")
+		return array // そのまま返す
+	}
+
+	return append(array[:target], append([]int{value}, array[target:]...)...)
 }
 
 // target番目の要素を削除
