@@ -131,3 +131,10 @@ func unique(array []int) []int {
 
 	return res
 }
+
+// 配列の要素をIndexを指定して入れ替える
+func swap(array []int, index1 int, index2 int) {
+	if index1 >= 0 && index1 < len(array) && index2 >= 0 && index2 < len(array) {
+		array[index1], array[index2] = array[index2], array[index1]
+	}
+}
