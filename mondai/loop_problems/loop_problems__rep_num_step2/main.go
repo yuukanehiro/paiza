@@ -11,6 +11,13 @@ import (
 var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
+	infoArray := nextLineBySeparator(" ", "int").([]int)
+	requestNumber := infoArray[0]
+	requestCount := infoArray[1]
+
+	for i := 0; i < requestCount; i++ {
+		fmt.Printf("%d\n", requestNumber)
+	}
 }
 
 // 行を取得してstringで返却
@@ -55,3 +62,20 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 		return nil
 	}
 }
+
+// Q
+// 整数 N, K が与えられます。
+// N を K 回、改行区切りで出力してください。
+
+// Input
+// 3 8
+
+// Output
+// 3
+// 3
+// 3
+// 3
+// 3
+// 3
+// 3
+// 3

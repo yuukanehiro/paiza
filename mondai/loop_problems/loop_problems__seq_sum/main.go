@@ -11,6 +11,15 @@ import (
 var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
+	_ = nextLine()
+	infoArray := nextLineBySeparator(" ", "int").([]int)
+
+	var sum int = 0
+	for _, v := range infoArray {
+		sum += v
+	}
+
+	fmt.Printf("%d\n", sum)
 }
 
 // 行を取得してstringで返却
@@ -55,3 +64,14 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 		return nil
 	}
 }
+
+// Q
+// 長さ N の数列 a (a_1, a_2, ..., a_N) が与えられます。
+// この数列の和を計算し、出力してください。
+
+// Input
+// 5
+// 1 2 3 4 5
+
+// Output
+// 15
