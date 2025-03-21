@@ -138,3 +138,12 @@ func swap(array []int, index1 int, index2 int) {
 		array[index1], array[index2] = array[index2], array[index1]
 	}
 }
+
+// 先頭からn個の要素を残して、それ以外を削除
+func resizeArray(array []int, resizeNumber int) []int {
+	if len(array) > resizeNumber {
+		return array[:resizeNumber]
+	}
+
+	return array
+}
