@@ -10,33 +10,23 @@ import (
 
 var sc = bufio.NewScanner(os.Stdin)
 
-// 5の冪乗のリストを作成し、そのリストに含まれる数で割り切れる数をカウントする
-// 5の冪乗のリストを作成する際に、targetより大きい数は作成しない
 func main() {
-	infoArray := nextLineBySeparator(" ", "int").([]int)
-	target := infoArray[0]
+	_ = nextLine()
+	numbers := nextLineBySeparator(" ", "int").([]int)
 
-	// 5の冪乗のリストを作成
-	var fivePowers []int
-	var fivePower int
-	for i := 5; i <= target; i *= 5 {
-		fivePower = i
-		fivePowers = append(fivePowers, fivePower)
-	}
-
-	var count int
-	for i := target; i > 0; i-- {
-		for _, v := range fivePowers {
-			if i%v == 0 {
-				count++
-			}
+	// numbersの中から各要素とIndex+1の和を計算し、最大値を求める
+	var maxSum int = 0
+	for i, v := range numbers {
+		// n番目
+		n := i + 1
+		sum := n + v
+		if sum > maxSum {
+			maxSum = sum
 		}
 	}
 
-	fmt.Println(count)
+	fmt.Println(maxSum)
 }
-
-
 
 // 行を取得してstringで返却
 func nextLine() string {
@@ -81,13 +71,13 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 	}
 }
 
-// input1
-// 100
+// Q
+// N 個の整数 a_1, a_2, ..., a_N が与えられます。
+// a_i に i を足したとき、a_1 , ... , a_N の最大値を出力してください。
 
-// output1
-// 24
-// 内訳: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100
-// 5の冪乗のリスト: 5, 25
-// 5で割り切れる数: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100
-// 25で割り切れる数: 25, 50, 75, 100
-// 合計: 24
+// input
+// 5
+// 1 2 3 4 5
+
+// output
+// 10
