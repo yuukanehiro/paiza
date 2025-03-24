@@ -12,10 +12,17 @@ var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
 	infoArray := nextLineBySeparator(" ", "int").([]int)
-	max := infoArray[0]
+	maxNum := infoArray[0]
+	count := infoArray[1]
 
-	for i := 1; i <= max; i++ {
-		fmt.Println(i)
+	var numbers []string
+	for i := 1; i <= maxNum; i++ {
+		numbers = append(numbers, strconv.Itoa(i))
+	}
+
+	const separator = " "
+	for i := 0; i < count; i++ {
+		fmt.Println(strings.Join(numbers, separator))
 	}
 }
 
@@ -63,11 +70,15 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 }
 
 // Q
-// 正の整数 N が与えられるので、1 〜 N の整数を 1 から順に改行区切りで N 行で出力してください。
+// 整数 N , K が与えられるので、 1 から N までの数字を半角スペース区切りしたもの
+// "1 2 ... (N-1) N" を K 行出力してください。
 
 // Input
-// 2
+// 5 5
 
 // Output
-// 1
-// 2
+// 1 2 3 4 5
+// 1 2 3 4 5
+// 1 2 3 4 5
+// 1 2 3 4 5
+// 1 2 3 4 5

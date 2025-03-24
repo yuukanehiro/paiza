@@ -11,11 +11,12 @@ import (
 var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
+	const line = "1 2 3 4 5"
 	infoArray := nextLineBySeparator(" ", "int").([]int)
-	max := infoArray[0]
+	count := infoArray[0]
 
-	for i := 1; i <= max; i++ {
-		fmt.Println(i)
+	for i := 0; i < count; i++ {
+		fmt.Println(line)
 	}
 }
 
@@ -63,11 +64,15 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 }
 
 // Q
-// 正の整数 N が与えられるので、1 〜 N の整数を 1 から順に改行区切りで N 行で出力してください。
+// 整数 N が与えられるので、 1 から 5 までの数字を半角スペース区切りしたもの
+// "1 2 3 4 5" を N 行出力してください。
 
 // Input
-// 2
+// 5
 
 // Output
-// 1
-// 2
+// 1 2 3 4 5
+// 1 2 3 4 5
+// 1 2 3 4 5
+// 1 2 3 4 5
+// 1 2 3 4 5

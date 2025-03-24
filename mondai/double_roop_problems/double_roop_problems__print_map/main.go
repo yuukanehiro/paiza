@@ -12,10 +12,10 @@ var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
 	infoArray := nextLineBySeparator(" ", "int").([]int)
-	max := infoArray[0]
+	lineCount := infoArray[0]
 
-	for i := 1; i <= max; i++ {
-		fmt.Println(i)
+	for i := 0; i < lineCount; i++ {
+		fmt.Println(nextLine())
 	}
 }
 
@@ -63,11 +63,15 @@ func nextLineBySeparator(separator string, elementType string) interface{} {
 }
 
 // Q
-// 正の整数 N が与えられるので、1 〜 N の整数を 1 から順に改行区切りで N 行で出力してください。
+// 整数 N , K と N 行 K 列 の二次元配列 A が与えられるので、その配列をそのまま出力してください。
 
 // Input
-// 2
+// 3 4
+// 92 15 49 19
+// 20 89 92 47
+// 0 87 42 45
 
 // Output
-// 1
-// 2
+// 92 15 49 19
+// 20 89 92 47
+// 0 87 42 45
