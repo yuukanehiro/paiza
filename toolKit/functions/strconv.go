@@ -1,5 +1,7 @@
 package main
 
+import "strconv"
+
 func atoi(s string) int {
 	i, e := strconv.Atoi(s)
 	if e != nil {
