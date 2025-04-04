@@ -19,39 +19,6 @@ func nextLine() string {
 	return sc.Text()
 }
 
-// 空白を除いた行を取得してinterface{}で返却
-func nextLineWithoutEmptySpace(elementType string) interface{} {
-	line := nextLine()
-
-	var numberArray []string
-	numberArray = strings.Fields(line) // 空白を除去して分割
-
-	if len(numberArray) == 0 {
-		return nil
-	}
-
-	if elementType == "string" {
-		return numberArray
-	} else if elementType == "int" {
-
-		var numbers []int
-		for _, v := range numberArray {
-			number, err := strconv.Atoi(v)
-			if err != nil {
-				fmt.Println("input error", err)
-				return nil
-			}
-
-			numbers = append(numbers, number)
-		}
-
-		return numbers
-	} else {
-		fmt.Println("elementType error")
-		return nil
-	}
-}
-
 // 行を取得してinterface{}で返却
 // 注意: interface{}で返却されるので、キャストを忘れないこと
 // 利用例
