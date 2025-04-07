@@ -18,21 +18,21 @@ func nextLine() string {
 	return sc.Text()
 }
 
-func nextLineInts() ([]int, error) {
+func nextLineInts() []int {
 	line := nextLine()
 	parts := strings.Fields(line)
 	var nums []int
 	for _, part := range parts {
 		n, err := strconv.Atoi(part)
 		if err != nil {
-			return nil, err
+			panic(err)
 		}
 		nums = append(nums, n)
 	}
-	return nums, nil
+	return nums
 }
 
-func nextLineStrings() ([]string, error) {
+func nextLineStrings() []string {
 	line := nextLine()
-	return strings.Fields(line), nil
+	return strings.Fields(line)
 }
