@@ -12,9 +12,9 @@ func main() {
 	pairs := make(map[int][]int, 0)
 	for i := 0; 1+i*3 < len(array); i++ {
 		pairs[i] = make([]int, 3)
-		pairs[i][0] = array[1+i*2]
-		pairs[i][1] = array[2+i*2]
-		pairs[i][2] = array[3+i*2]
+		pairs[i][0] = array[1+i*3]
+		pairs[i][1] = array[2+i*3]
+		pairs[i][2] = array[3+i*3]
 	}
 
 	b, _ := json.MarshalIndent(pairs, "", "  ")
