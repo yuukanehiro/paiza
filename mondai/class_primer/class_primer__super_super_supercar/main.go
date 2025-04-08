@@ -146,24 +146,6 @@ func main() {
 		car := cars[i]
 		fmt.Printf("%s\n", itoa(car.GetDistance()))
 	}
-
-	// {
-	// 	"1": {
-	// 	  "Fuel": 1,
-	// 	  "FuelEfficiency": 1,
-	// 	  "Distance": 0
-	// 	},
-	// 	"2": {
-	// 	  "Fuel": 10,
-	// 	  "FuelEfficiency": 10,
-	// 	  "Distance": 0
-	// 	},
-	// 	"3": {
-	// 	  "Fuel": 100,
-	// 	  "FuelEfficiency": 5,
-	// 	  "Distance": 0
-	// 	}
-	//   }
 }
 
 func itoa(i int) string {
