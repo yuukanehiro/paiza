@@ -8,7 +8,7 @@ import (
 func main() {
 	array := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
 
-	// 1番目を除いて隣あつ2でペアを作る
+	// 1番目を除いて3個ずつペアを作る
 	pairs := make(map[int][]int, 0)
 	for i := 0; 1+i*3 < len(array); i++ {
 		pairs[i] = make([]int, 3)
