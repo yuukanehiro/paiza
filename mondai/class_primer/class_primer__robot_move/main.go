@@ -81,32 +81,6 @@ func main() {
 		robots[i] = NewRobot(i, robotInfoArray[0], robotInfoArray[1], robotInfoArray[2])
 	}
 
-	// fmt.Println("start robots")
-	// b, _ := json.MarshalIndent(robots, "", "  ")
-	// println(string(b))
-	// fmt.Println("end robots")
-
-	// {
-	// 	"1": {
-	// 	  "ID": 1,
-	// 	  "Level": 2,
-	// 	  "X": 1,
-	// 	  "Y": 1
-	// 	},
-	// 	"2": {
-	// 	  "ID": 2,
-	// 	  "Level": 2,
-	// 	  "X": 2,
-	// 	  "Y": 1
-	// 	},
-	// 	"3": {
-	// 	  "ID": 3,
-	// 	  "Level": 2,
-	// 	  "X": 3,
-	// 	  "Y": 1
-	// 	}
-	//   }
-
 	for i := 0; i < activityCount; i++ {
 		activityInfoArray := nextLineStrings()
 		robotID := atoi(activityInfoArray[0])
