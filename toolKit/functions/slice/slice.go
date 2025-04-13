@@ -2,18 +2,7 @@ package main
 
 import "fmt"
 
-// 配列の中に指定した要素が何個あるかをintで返却
-func countTargetNumber[T comparable](array []T, targetNumber T) int {
-	var targetCount int
 
-	for _, v := range array {
-		if targetNumber == v {
-			targetCount++
-		}
-	}
-
-	return targetCount
-}
 
 // 配列の全ての要素の和を返却
 func sum(array []int) int {
