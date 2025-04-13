@@ -19,6 +19,8 @@ func main() {
 				fmt.Println("recovered in writer:", r)
 				// Close Aがあるので不要だが、2重でCloseした場合にエラーの有無を確認するために記載
 				err := pw.Close()
+				// panic AでPanicした場合、Close Bでもpanicしたらまたpanicするかも？
+				// panic("panic after pw.Close() B")
 				if err != nil {
 					fmt.Println("B: pw.Close() error:", err)
 				} else {
@@ -31,6 +33,8 @@ func main() {
 		// Close A
 		defer func() {
 			err := pw.Close()
+			// panic Aでpanicする場合
+			// panic("panic after pw.Close() A")
 			if err != nil {
 				fmt.Println("A: pw.Close() error:", err)
 			} else {
