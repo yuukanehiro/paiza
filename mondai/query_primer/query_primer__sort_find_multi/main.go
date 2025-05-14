@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"sort"
 	"strconv"
 	"strings"
 )
@@ -41,11 +40,6 @@ func main() {
 			fmt.Println(len(heightArray))
 		}
 	}
-}
-
-// 昇順ソート
-func sortAsc(numbers []int) {
-	sort.Ints(numbers)
 }
 
 func atoi(s string) int {
