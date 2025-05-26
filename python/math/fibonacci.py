@@ -1,6 +1,3 @@
-import unittest
-from collections import defaultdict
-
 def fibonacci(n):
     """
     n番目のフィボナッチ数列の値を返却する
@@ -13,4 +10,4 @@ def fibonacci(n):
     return dp[n]
 
 if __name__ == '__main__':
-    print(fibo(10)) # Output: 55
+    print(fibonacci(10)) # Output: 55
