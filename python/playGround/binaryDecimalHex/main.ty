@@ -1,0 +1,29 @@
+
+
+# 10進数 -> 2進数
+n = 10
+print(bin(n)) # Output: 0b1010 // 0bは2進数を表すプレフィックス
+print(bin(n)[2:]) # Output: 1010
+
+# 2進数 -> 10進数
+n = '1010'
+print(int(n, 2)) # Output: 10
+
+# 10進数 -> 16進数
+n = 255
+print(hex(n)) # Output: 0xff // 0xは16進数を表すプレフィックス
+print(hex(n)[2:]) # Output: ff
+
+# 16進数 -> 10進数
+n = 'ff'
+print(int(n, 16)) # Output: 255
+
+# 16進数 -> 2進数
+n = 'ff'
+print(bin(int(n, 16))) # Output: 0b11111111 // 0bは2進数を表すプレフィックス
+print(bin(int(n, 16))[2:]) # Output: 11111111
+
+# 2進数 -> 16進数
+n = '11111111'
+print(hex(int(n, 2))) # Output: 0xff // 0xは16進数を表すプレフィックス
+print(hex(int(n, 2))[2:]) # Output: ff
