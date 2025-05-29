@@ -7,3 +7,5 @@
 [Pythonで使う競技プログラミング用チートシート](https://qiita.com/_-_-_-_-_/items/34f933adc7be875e61d0)
 
 [Codility練習問題](https://app.codility.com/programmers/lessons/1-iterations/)
+
+[競プロ典型 90 問](https://atcoder.jp/contests/typical90)
