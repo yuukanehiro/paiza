@@ -2,8 +2,6 @@ import unittest
 import sys
 from collections import defaultdict
 
-
-
 class TestHashTable(unittest.TestCase):
     def test_get_hash_table(self):
          got = get_hash_table(["hij", "abc", "abc", "bcd"])
