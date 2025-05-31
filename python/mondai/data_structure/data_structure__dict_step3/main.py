@@ -1,18 +1,34 @@
+import unittest
+import sys
+from collections import defaultdict
 
-max_line_count = int(input())
 
-hashTable = {}
-for _ in range(max_line_count):
-    keyString = input()
-    if keyString in hashTable:
+
+class TestHashTable(unittest.TestCase):
+    def test_get_hash_table(self):
+         got = get_hash_table(["hij", "abc", "abc", "bcd"])
+         want = {"abc": 2, "bcd": 1, "hij": 1}
+         self.assertEqual(got, want)
+
+def get_hash_table(lines):
+    hashTable = defaultdict(int)
+    for keyString in lines:
         hashTable[keyString] += 1
+
+    return hashTable
+
+def main():
+    max_line_count = int(input())
+    lines = [input() for _ in range(max_line_count)]
+    hashTable = get_hash_table(lines)
+    for k in sorted(hashTable):
+        print(f"{k} {hashTable[k]}")
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1 and sys.argv[1] == "test":
+            unittest.main(argv=sys.argv[:1])
     else:
-        hashTable[keyString] = 1
-
-sortedHashTable = sorted(hashTable)
-
-for k in sortedHashTable:
-    print(f"{k} {hashTable[k]}")
+        main()
 
 # Q
 # 下記の問題をプログラミングしてみよう！
