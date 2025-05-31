@@ -1,40 +1,38 @@
-import unittest
 import sys
+import unittest
 from collections import defaultdict
 from typing import List, Dict
 
-def get_item_table(lines: List[str]) -> Dict[str, int]:
-    hashTable = defaultdict(str)
 
-    for line in lines:
-        itemName, price = line.split()
-        hashTable[itemName] = int(price)
+def get_item_price_map(item_lines: List[str]) -> Dict[str, int]:
+    item_price_map = defaultdict(int)
+    for line in item_lines:
+        name, price = line.split()
+        item_price_map[name] = int(price)
+    return item_price_map
 
-    return hashTable
 
+class TestItemPriceMap(unittest.TestCase):
+    def test_get_item_price_map(self):
+        expected = {"eraser": 50, "pencil": 30}
+        actual = get_item_price_map(["eraser 50", "pencil 30"])
+        self.assertEqual(expected, actual)
 
-class TestFruitCounter(unittest.TestCase):
-    def test_get_item_table(self):
-        want = {"eraser": 50, "pencil": 30}
-        got = get_item_table(["eraser 50", "pencil 30"])
-        got = self.assertEqual(want, got)
 
 def main():
-    itemCount, orderCount = map(int, input().split())
-    lines = [input() for _ in range(itemCount)]
-    itemTable = get_item_table(lines)
+    item_count, query_count = map(int, input().split())
+    item_lines = [input().strip() for _ in range(item_count)]
+    query_lines = [input().strip() for _ in range(query_count)]
 
-    orderLines = [input() for _ in range(orderCount)]
+    item_price_map = get_item_price_map(item_lines)
 
-    for order in orderLines:
-        if order in itemTable:
-            print(itemTable[order])
-        else:
-            print(-1)
+    for item in query_lines:
+        print(item_price_map.get(item, -1))
+
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "test":
-            unittest.main(argv=sys.argv[:1])
+        unittest.main(argv=sys.argv[:1])
     else:
         main()
 
