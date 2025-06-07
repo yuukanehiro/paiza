@@ -1,25 +1,23 @@
 import sys
 import unittest
-from collections import defaultdict
-from typing import List, Dict
+from typing import List
 
-
-def get_sorted_unique_items(items: List[str]) -> list[str]:
+def get_sorted_unique_items(items: List[int]) -> List[int]:
     unique_items = set(items)
     return sorted(unique_items)
 
 class TestGetSortedUniqueItems(unittest.TestCase):
     def test_get_sorted_unique_items(self):
-        expected = ["1", "2", "3", "4", "5"]
-        actual = get_sorted_unique_items(["1", "2", "3", "3", "4", "5"])
+        expected = [1, 2, 3, 4, 5, 35]
+        actual = get_sorted_unique_items([1, 2, 3, 3, 35, 4, 5])
         self.assertEqual(expected, actual)
 
 def main():
     _ = map(int, input())
-    items = input().split()
+    items = list(map(int, input().split()))
+    str_items = [str(v) for v in get_sorted_unique_items(items)]
 
-    for v in get_sorted_unique_items(items):
-        print(v)
+    print(" ".join(str_items))
 
 
 if __name__ == '__main__':

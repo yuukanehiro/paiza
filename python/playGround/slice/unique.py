@@ -1,6 +1,6 @@
 
 
-items = [8,9,4,2,5,5,7,9,1]
+items = [8,9,4,2,5,5,7,9,1,59]
 unique_items = set(items)
 sorted_unique_items = (sorted(unique_items))
 
@@ -15,3 +15,4 @@ for v in sorted_unique_items:
 # 7
 # 8
 # 9
+# 59
