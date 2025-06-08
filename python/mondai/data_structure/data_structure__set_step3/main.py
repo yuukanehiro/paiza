@@ -14,7 +14,7 @@ def get_item_seen_results(items: List[int]) -> List[str]:
             results.append("Yes")
         else:
             results.append("No")
-        seen[items[i]] = True
+            seen[items[i]] = True
     
     return results
 
