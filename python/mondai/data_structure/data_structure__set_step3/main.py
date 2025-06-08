@@ -1,34 +1,33 @@
 import sys
 import unittest
 from collections import defaultdict
-from typing import List, Dict
+from typing import List
 
 
 def get_item_seen_results(items: List[int]) -> List[str]:
     seen = defaultdict(bool)
     results = []
-
-    for v in items:
-        if v not in seen:
-            seen[v] = True
-            results.append("No")
-        else:
+    for i in range(1, len(items)):
+        if seen[items[i]]:
             results.append("Yes")
-
+        else:
+            results.append("No")
+        seen[items[i - 1]] = True
+    
     return results
 
 
 class TestGetItemSeenResults(unittest.TestCase):
     def test_get_item_seen_results_exists(self):
-        expected = ["No", "No", "Yes"]
-        actual = get_item_seen_results([1, 2, 1])
+        expected = ["No", "No", "Yes", "No", "Yes", "Yes", "No", "Yes"]
+        actual = get_item_seen_results([1, 2, 3, 2, 5, 3, 3, 10, 2])
         self.assertEqual(expected, actual)
     def test_get_item_seen_results_some_exists(self):
-        expected = ["No", "No", "Yes", "Yes", "Yes", "No"]
-        actual = get_item_seen_results([1, 2, 1, 1, 2, 3])
+        expected = ["No", "Yes", "Yes", "Yes", "No", "No"]
+        actual = get_item_seen_results([1, 2, 1, 1, 2, 3, 4])
         self.assertEqual(expected, actual)
     def test_get_item_seen_results_not_exists(self):
-        expected = ["No", "No", "No"]
+        expected = ["No", "No"]
         actual = get_item_seen_results([1, 2, 3])
         self.assertEqual(expected, actual)
 
