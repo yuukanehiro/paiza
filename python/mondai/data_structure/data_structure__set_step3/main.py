@@ -7,20 +7,26 @@ from typing import List
 def get_item_seen_results(items: List[int]) -> List[str]:
     seen = defaultdict(bool)
     results = []
+
+    seen[items[0]] = True
     for i in range(1, len(items)):
         if seen[items[i]]:
             results.append("Yes")
         else:
             results.append("No")
-        seen[items[i - 1]] = True
+        seen[items[i]] = True
     
     return results
 
 
 class TestGetItemSeenResults(unittest.TestCase):
-    def test_get_item_seen_results_exists(self):
+    def test_get_item_seen_results_exists1(self):
         expected = ["No", "No", "Yes", "No", "Yes", "Yes", "No", "Yes"]
         actual = get_item_seen_results([1, 2, 3, 2, 5, 3, 3, 10, 2])
+        self.assertEqual(expected, actual)
+    def test_get_item_seen_results_exists2(self):
+        expected = ["Yes"]
+        actual = get_item_seen_results([1, 1])
         self.assertEqual(expected, actual)
     def test_get_item_seen_results_some_exists(self):
         expected = ["No", "Yes", "Yes", "Yes", "No", "No"]
