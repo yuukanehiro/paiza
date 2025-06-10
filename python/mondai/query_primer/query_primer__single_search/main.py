@@ -23,9 +23,9 @@ def main():
     items = [int(input().strip()) for _ in range(item_count)]
     
     if is_exists(items, target_number):
-        print("Yes")
+        print("YES")
     else:
-        print("No")
+        print("NO")
 
 
 if __name__ == '__main__':
