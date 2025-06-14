@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import patch
+from typing import List, Dict
 
 class TestInputPatterns(unittest.TestCase):
     @patch('builtins.input', return_value='abcde') # returnValueだとエラーになる。
@@ -36,6 +37,12 @@ class TestInputPatterns(unittest.TestCase):
     def testSplitByT(self, mockInput):
         li = input().split('T')
         self.assertEqual(li, ['FFF', 'F', '', 'FF'])
+
+    # 辞書型の受け取り
+    @patch('builtins.input', side_effect=['2 Yuu', '3 Ayaka'])
+    def testSplitByT(self, mockInput):
+        li: Dict[str, str] = dict(input().split() for _ in range(2))
+        self.assertEqual(li, {"2": "Yuu", "3": "Ayaka"})
 
 if __name__ == '__main__':
     unittest.main()
