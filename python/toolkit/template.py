@@ -23,7 +23,7 @@ def main():
     item_count, query_count = map(int, input().split())
     items = [input().strip() for _ in range(item_count)]
     queries = [input().strip() for _ in range(query_count)]
-    # queries: Dict[str, str] = {int(line.split()[0]): line.split()[1] for line in (input().strip() for _ in range(query_count))}
+    # queries: Dict[int, str] = {int(line.split()[0]): line.split()[1] for line in (input().strip() for _ in range(query_count))}
     # queries: List[Tuple[int, str]] = [(int(line.split()[0]), line.split()[1]) for line in (input().strip() for _ in range(query_count))]
 
     item_price_map = get_item_price_map(items)
