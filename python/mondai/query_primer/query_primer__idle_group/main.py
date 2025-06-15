@@ -1,22 +1,21 @@
 import sys
 import unittest
-from collections import defaultdict
-from typing import List, Dict
-
+from typing import List
 
 def get_result_list(items: List[str], queries: List[str]) -> List[str]:
     result = []
 
+    members = set(items) # (重要)集合で保持（順序なし、追加・削除が高速）
+
     for q in queries:
         q_array = q.split()
         if q_array[0] == "leave":
-            items.remove(q_array[1])
+            # items.remove(q_array[1]) # O(N)
+            members.remove(q_array[1]) # O(1)
         elif q_array[0] == "join":
-            items.append(q_array[1])
-        elif q_array[0] == "handshake":
-            items.sort()
-            for v in items:
-                result.append(v)
+            members.add(q_array[1]) # O(1)
+        elif q_array[0] == "handshake": # O(N log N) 最大10回　>・握手会がおこなわれるのは 10 回以下であることが保証されています。
+            result.extend(sorted(members))
 
     return result
 
