@@ -1,10 +1,11 @@
 import sys
 import unittest
+from collections import defaultdict
 from typing import List
 
 
 def get_result_list(items: List[str]) -> List[str]:
-    superchats = []
+    superchat_sum_map = defaultdict(int)
     memberships = []
     response = []
 
@@ -13,15 +14,24 @@ def get_result_list(items: List[str]) -> List[str]:
         name = arr[0]
         query = arr[1]
         if query == "give":
-            superchats.append((int(arr[2]), name))
+            if name in superchat_sum_map:
+                superchat_sum_map[name] += int(arr[2])
+            else:
+                superchat_sum_map[name] = int(arr[2])
         elif query == "join":
             memberships.append(name)
 
-    superchats.sort(key=lambda x: (-x[0], x[1]))
+    # ソート条件:
+    # - superchat 合計金額の降順
+    # - 金額が同じならアカウント名の辞書降順
+    sorted_items = sorted(
+        superchat_sum_map.items(),
+        key=lambda x: (-x[1], tuple(-ord(c) for c in x[0]))
+    )
     memberships.sort()
 
-    for v in superchats:
-        response.append(v[1])
+    for k, _ in sorted_items:
+        response.append(k)
 
     for v in memberships:
         response.append(v)
@@ -51,7 +61,6 @@ class TestResultList(unittest.TestCase):
 
 def main():
     item_count = int(input())
-    print(item_count)
     items = [input().strip() for _ in range(item_count)]
     # queries: Dict[int, str] = {int(line.split()[0]): line.split()[1] for line in (input().strip() for _ in range(query_count))}
     # queries: List[Tuple[int, str]] = [(int(line.split()[0]), line.split()[1]) for line in (input().strip() for _ in range(query_count))]
