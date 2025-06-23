@@ -18,8 +18,6 @@ def get_two_dimensions_cumulative_sum_matrix(A: List[List[int]], H: int, W: int)
     return sum_matrix
     
 
-
-
 class TestGetTwoDimensionsCumulativeSumMatrix(unittest.TestCase):
     def test_get_two_dimensions_cumulative_sum_matrix(self):
         expected = [
