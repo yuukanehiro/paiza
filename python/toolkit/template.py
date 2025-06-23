@@ -1,7 +1,7 @@
 import sys
 import unittest
 from collections import defaultdict
-from typing import List, Dict
+from typing import List, Dict, Tuple
 
 
 def get_item_price_map(items: List[str]) -> Dict[str, int]:
