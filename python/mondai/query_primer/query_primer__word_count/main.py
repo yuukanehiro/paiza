@@ -4,37 +4,27 @@ from collections import defaultdict
 from typing import List, Dict, Tuple
 
 
-def get_item_price_map(items: List[str]) -> Dict[str, int]:
-    item_price_map: Dict[str, int] = {}
-    for line in items:
-        name, price = line.split()
-        item_price_map[name] = int(price)
-    return item_price_map
+def get_sum_array(A: List[int]) -> List[int]:
+    # 先頭に0を追加
+    A.insert(0, 0)
+    sum_array = [0] * (len(A))
 
-
-class TestItemPriceMap(unittest.TestCase):
-    def test_get_item_price_map(self):
-        expected = {"eraser": 50, "pencil": 30}
-        actual = get_item_price_map(["eraser 50", "pencil 30"])
-        self.assertEqual(expected, actual)
-
-
-def main():
-    item_count, query_count = map(int, input().split())
-    # item_count = int(input()) # 1つのintの場合
-    A = [0] + [int(input().strip()) for i in range(item_count)]
-    # items = [list(map(int, input().strip().split())) for _ in range(item_count)]
-    queries = [input().strip() for _ in range(query_count)]
-    # queries: Dict[int, str] = {int(line.split()[0]): line.split()[1] for line in (input().strip() for _ in range(query_count))}
-    # queries: List[Tuple[int, str]] = [(int(line.split()[0]), line.split()[1]) for line in (input().strip() for _ in range(query_count))]
-
-    sum_array = [0] * len(A)
     for i, _ in enumerate(A):
         sum_array[i] = A[i] + sum_array[i - 1]
 
+    return sum_array
+
+class TestSumMatrix(unittest.TestCase):
+    def test_get_sum_matrix(self):
+        expected = [0, 1, 3]
+        actual = get_sum_array([1, 2])
+        self.assertEqual(expected, actual)
+
+def get_result_array(sum_array: List[int], queries: List[str], limit_page: int) -> List[str]:
+    result = []
+
     for q in queries:
         a_s, a_e, b_s, b_e = map(int, q.split())
-        limit_page = item_count / 3
 
         a_faul = False
         b_faul = False
@@ -44,27 +34,75 @@ def main():
             b_faul = True
 
         if a_faul and b_faul:
-            print("DRAW")
+            result.append("DRAW")
             continue
         elif not a_faul and b_faul:
-            print("A")
+            result.append("A")
             continue
         elif not b_faul and a_faul:
-            print("B")
+            result.append("B")
             continue
 
         a_sum = sum_array[a_e] - sum_array[a_s - 1]
         b_sum = sum_array[b_e] - sum_array[b_s - 1]
 
         if a_sum == b_sum:
-            print("DRAW")
+            result.append("DRAW")
             continue
         elif a_sum > b_sum:
-            print("A")
+            result.append("A")
             continue
         elif a_sum < b_sum:
-            print("B")
-        
+            result.append("B")
+
+    return result
+
+class TestResultArray(unittest.TestCase):
+    def test_get_result_array_case1(self):
+        expected = [
+            "DRAW",
+            "DRAW",
+            "DRAW",
+        ]
+        input_sum_array = [0, 0, 1, 3]
+        input_queries = [
+            "1 1 2 2",
+            "2 2 3 3",
+            "3 3 3 3",
+        ]
+        input_limit_pages = 3 / 3
+        actual = get_result_array(input_sum_array,input_queries, input_limit_pages)
+        self.assertEqual(expected, actual)
+    def test_get_result_array_case2(self):
+        expected = [
+            "A",
+            "B",
+            "DRAW",
+        ]
+        input_sum_array = [0, 10, 19, 27, 33, 38, 42, 45, 47, 48]
+        input_queries = [
+            "1 3 7 10",
+            "1 4 3 4",
+            "1 5 6 10",
+        ]
+        input_limit_pages = 10 / 3
+        actual = get_result_array(input_sum_array,input_queries, input_limit_pages)
+        self.assertEqual(expected, actual)
+
+def main():
+    item_count, query_count = map(int, input().split())
+    # item_count = int(input()) # 1つのintの場合
+    A = [int(input().strip()) for i in range(item_count)]
+    # items = [list(map(int, input().strip().split())) for _ in range(item_count)]
+    queries = [input().strip() for _ in range(query_count)]
+    # queries: Dict[int, str] = {int(line.split()[0]): line.split()[1] for line in (input().strip() for _ in range(query_count))}
+    # queries: List[Tuple[int, str]] = [(int(line.split()[0]), line.split()[1]) for line in (input().strip() for _ in range(query_count))]
+
+    sum_array = get_sum_array(A)
+
+    for v in get_result_array(sum_array, queries, limit_page = item_count / 3):
+        print(v)
+
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "test":
