@@ -19,7 +19,6 @@ sorted_dict = dict(sorted(
     key=lambda x: (-x[1], tuple(-ord(c) for c in x[0]))
 ))
 
-
 # 出力
 for k, v in sorted_dict.items():
     print(f"{k}: {v}")
