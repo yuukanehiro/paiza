@@ -44,5 +44,21 @@ class TestInputPatterns(unittest.TestCase):
         li: Dict[str, str] = dict(input().split() for _ in range(2))
         self.assertEqual(li, {"2": "Yuu", "3": "Ayaka"})
 
+    # 2次元配列への変換
+    # [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    @patch('builtins.input', side_effect=[
+        '1 2 3',
+        '4 5 6',
+        '7 8 9'
+    ])
+    def test_read_matrix(self, mock_input):
+        expected = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ]
+        actual = [list(map(int, input().split())) for _ in range(3)]
+        self.assertEqual(actual, expected)
+
 if __name__ == '__main__':
     unittest.main()
