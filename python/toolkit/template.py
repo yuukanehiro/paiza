@@ -3,7 +3,9 @@ import unittest
 from collections import defaultdict
 from typing import List, Dict, Tuple
 
-
+# ------------------------
+# itemと価格のmapを返却
+# ------------------------
 def get_item_price_map(items: List[str]) -> Dict[str, int]:
     item_price_map: Dict[str, int] = {}
     for line in items:
@@ -11,14 +13,19 @@ def get_item_price_map(items: List[str]) -> Dict[str, int]:
         item_price_map[name] = int(price)
     return item_price_map
 
-
+# ------------------------
+# テスト用コード（unittest）
+# ------------------------
 class TestItemPriceMap(unittest.TestCase):
     def test_get_item_price_map(self):
         expected = {"eraser": 50, "pencil": 30}
         actual = get_item_price_map(["eraser 50", "pencil 30"])
         self.assertEqual(expected, actual)
 
-
+# ------------------------
+# main()
+# 起動時分岐
+# ------------------------
 def main():
     item_count, query_count = map(int, input().split())
     # item_count = int(input()) # 1つのintの場合
