@@ -7,7 +7,7 @@ from typing import List, Dict, Tuple
 # 等差数列のdpを返却
 # ------------------------
 def get_arithmetic_progression(x: int, d: int, k: int) -> List[int]:
-    dp = [0] * 9
+    dp = [0] * k
     dp[0] = x
     for i in range(1, k):
         dp[i] = dp[i -1] + d
