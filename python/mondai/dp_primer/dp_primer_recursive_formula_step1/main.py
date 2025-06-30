@@ -15,7 +15,7 @@ def get_arithmetic_progression(x: int, d: int, k: int) -> List[int]:
     return dp
 
 # ------------------------
-# を返却
+# クエリ結果となる配列を返却
 # ------------------------
 def get_result_list(dp: List[int], queries: List[int]) -> List[int]:
     result = []
