@@ -1,4 +1,6 @@
 
+[コーディングテスト対策ストーリー](https://paiza.jp/pages/works/stories/cording_test)
+
 [Python早見表](https://chokkan.github.io/python/index.html)
 
 [Coding Interview コーディング面接で必要なPythonの学習](https://interviewcat.dev/p/coding-interviewcat/python-basics)
