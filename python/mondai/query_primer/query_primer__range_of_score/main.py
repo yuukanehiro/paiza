@@ -41,11 +41,31 @@ def get_max_and_min(A: List[int], max_list: List[int], min_list: List[int], sqrt
 # # ------------------------
 # # テスト用コード（unittest）
 # # ------------------------
-# class TestItemPriceMap(unittest.TestCase):
-#     def test_get_item_price_map(self):
-#         expected = {"eraser": 50, "pencil": 30}
-#         actual = get_item_price_map(["eraser 50", "pencil 30"])
-#         self.assertEqual(expected, actual)
+class TestItemPriceMap(unittest.TestCase):
+    def test_get_max_and_min_single_block(self):
+        input_A = [10, 20, 30, 40, 50, 60]
+        input_sqrt = 3
+        input_max_list = [30, 60]
+        input_min_list = [10, 40]
+        actual = get_max_and_min(input_A, input_max_list, input_min_list, input_sqrt, 1, 3)
+        expected = (30, 10)
+        self.assertEqual(expected, actual)
+    def test_get_max_and_min_last_element_range(self):
+        input_A = [1, 2, 3, 4, 5, 6]
+        input_sqrt = 2
+        input_max_list = [2, 4, 6]
+        input_min_list = [1, 3, 5]
+        actual = get_max_and_min(input_A, input_max_list, input_min_list, input_sqrt, 6, 6)
+        expected = (6, 6)
+        self.assertEqual(expected, actual)
+    def test_get_max_and_min_entire_range(self):
+        input_A = [4, 3, 8, 1, 7, 9]
+        input_sqrt = 3
+        input_max_list = [8, 9]
+        input_min_list = [3, 1]
+        actual = get_max_and_min(input_A, input_max_list, input_min_list, input_sqrt, 1, 6)
+        expected = (9, 1)
+        self.assertEqual(expected, actual)
 
 # ------------------------
 # main()
@@ -133,7 +153,6 @@ if __name__ == '__main__':
 # ans_1
 # ...
 # ans_K
-
 
 # ・i 行目に i 試合目の結果を出力してください。
 # A の勝ちの場合は 'A', B の勝ちの場合は 'B' , 引き分けの場合は 'DRAW' と出力してください。
