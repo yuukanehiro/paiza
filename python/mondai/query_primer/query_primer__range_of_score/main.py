@@ -5,7 +5,7 @@ from typing import List, Dict, Tuple
 import math
 
 # # ------------------------
-# # itemと価格のmapを返却
+# # 平方分割されたデータからTuple(max, min)を返却
 # # ------------------------
 def get_max_and_min(A: List[int], max_list: List[int], min_list: List[int], sqrt: int, start: int, end: int) -> Tuple[int, int]:
     start_block = start // sqrt
