@@ -2,7 +2,9 @@ def knapsack(weights, values, W):
     n = len(weights)
     dp = [[0] * (W + 1) for _ in range(n + 1)]
 
-    for i in range(1, n + 1): # i=1から始める。iは「何番目のアイテムを使うか」のインデックス
+    # i=1から始める。iは「何番目までのアイテムを使うか」のインデックス。何番目のアイテムではない。
+    # i番目までのアイテムを使う時に、i-1番目での最大価値を土台に考える
+    for i in range(1, n + 1):
         for w in range(W + 1):
             if w >= weights[i - 1]:
                 # 容量が足りている場合
@@ -11,7 +13,7 @@ def knapsack(weights, values, W):
                 dp[i][w] = max(
                     dp[i - 1][w],
                     dp[i - 1][w - weights[i - 1]] + values[i - 1]
-                )     
+                )
             else:
                 # 容量が足りない場合
                 dp[i][w] = dp[i - 1][w] # 入れらないので、前の最大価値を代入
