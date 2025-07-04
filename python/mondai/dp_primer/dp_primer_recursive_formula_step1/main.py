@@ -21,7 +21,7 @@ def get_result_list(dp: List[int], queries: List[int]) -> List[int]:
     result = []
 
     for q in queries:
-        result.append(dp[q-1])
+        result.append(dp[q - 1])
 
     return result
 
@@ -35,13 +35,9 @@ class TestItemPriceMap(unittest.TestCase):
             7,
             14,
             21,
-            28,
-            35,
-            42,
-            49,
-            56
+            28
         ]
-        actual = get_arithmetic_progression(0, 7, 9)
+        actual = get_arithmetic_progression(0, 7, 5)
         self.assertEqual(expected, actual)
 
     def test_get_result_list(self):
@@ -86,11 +82,9 @@ def main():
     # queries: List[Tuple[int, str]] = [(int(line.split()[0]), line.split()[1]) for line in (input().strip() for _ in range(query_count))]
 
     query_count = int(input())
-
-    dp = get_arithmetic_progression(x, d, query_count)
-
     qeueries = [int(input().strip()) for _ in range(query_count)]
 
+    dp = get_arithmetic_progression(x, d, max(qeueries))
     for v in get_result_list(dp, qeueries):
         print(v)
 
