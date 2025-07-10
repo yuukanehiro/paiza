@@ -29,6 +29,8 @@ from typing import List, Dict, Tuple
 def main():
     item_count, query_count = map(int, input().split())
     # item_count = int(input()) # 1つのintの場合
+    # inputList = list(map(int, input().split()))
+    # item_count, query_count = inputList[0], inputList[1]
     items = [input().strip() for _ in range(item_count)]
     # 2次元配列
     # items = [list(map(int, input().split())) for _ in range(item_count)]
