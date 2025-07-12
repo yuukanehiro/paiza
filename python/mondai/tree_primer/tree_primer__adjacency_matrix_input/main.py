@@ -6,21 +6,32 @@ from typing import List, Dict, Tuple
 # ------------------------
 # を返却
 # ------------------------
-# def get_item_price_map(items: List[str]) -> Dict[str, int]:
-#     item_price_map: Dict[str, int] = {}
-#     for line in items:
-#         name, price = line.split()
-#         item_price_map[name] = int(price)
-#     return item_price_map
+def get_adjacency_matrix(item_count: int, queries: List[str]) -> List[List[int]]:
+    # 0-indexed
+    matrix = [[0] * item_count for _ in range(item_count)]
+    for q in queries:
+        a, b = map(int, q.split())
+        a -= 1
+        b -= 1
+        matrix[a][b] = 1
+        matrix[b][a] = 1
+
+    return matrix
 
 # ------------------------
 # テスト用コード（unittest）
 # ------------------------
-# class TestItemPriceMap(unittest.TestCase):
-#     def test_get_item_price_map(self):
-#         expected = {"eraser": 50, "pencil": 30}
-#         actual = get_item_price_map(["eraser 50", "pencil 30"])
-#         self.assertEqual(expected, actual)
+class TestAdjacencyMatrix(unittest.TestCase):
+    def test_get_adjacency_matrix(self):
+        expected = [
+            [0, 1, 1, 1, 0],
+            [1, 0, 0, 0, 0],
+            [1, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0]
+        ]
+        actual = get_adjacency_matrix(5, ['1 2', '1 3', '1 4', '5 3'])
+        self.assertEqual(expected, actual)
 
 # ------------------------
 # main()
@@ -36,18 +47,11 @@ def main():
     # items = [list(map(int, input().split())) for _ in range(item_count)]
     # 1 - indexed
     # items = [0] + [int(input().strip()) for _ in range(item_count)]
-    # queries = [input().strip() for _ in range(query_count)]
+    queries = [input().strip() for _ in range(item_count - 1)]
     # queries: Dict[int, str] = {int(line.split()[0]): line.split()[1] for line in (input().strip() for _ in range(query_count))}
-    # queries: List[Tuple[int, str]] = [(int(line.split()[0]), line.split()[1]) for line in (input().strip() for _ in range(query_count))]
-
-    # 0-indexed
-    matrix = [[0] * item_count for _ in range(item_count)]
-    for _ in range(item_count - 1):
-        a, b = map(int, input().split())
-        a -= 1
-        b -= 1
-        matrix[a][b] = 1
-        matrix[b][a] = 1
+    # queries: List[Tuple[int, str]] = [(int(line.split()[0]), line.split()[1]) for line in (input().strip() for _ in range(query_count))
+    
+    matrix = get_adjacency_matrix(item_count, queries)
 
     for i in range(len(matrix)):
         strArray = list(map(str, matrix[i]))
