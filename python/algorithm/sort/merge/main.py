@@ -56,13 +56,17 @@ class TestMergeSort(unittest.TestCase):
         expected = [1, 2, 3]
         actual = merge_sort([3, 2, 1])
         self.assertEqual(expected, actual)
-    def test_merge_sort_case5(self):
+    def test_merge_sort_case5_empty(self):
         expected = []
         actual = merge_sort([])
         self.assertEqual(expected, actual)
-    def test_merge_sort_case6(self):
+    def test_merge_sort_case6_exists_zero(self):
         expected = [0, 1, 2, 3, 99]
         actual = merge_sort([99, 0, 2, 1, 3])
+        self.assertEqual(expected, actual)
+    def test_merge_sort_case7_duplicated(self):
+        expected = [1, 2, 2, 3, 4, 4, 5]
+        actual = merge_sort([5, 1, 2, 4, 4, 3, 2])
         self.assertEqual(expected, actual)
 
 def main():
