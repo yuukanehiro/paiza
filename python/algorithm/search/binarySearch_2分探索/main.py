@@ -49,6 +49,22 @@ class TestBinarySearch(unittest.TestCase):
         expected = True
         actual = binary_search(input_arr, input_target)
         self.assertEqual(expected, actual)
+    def test_binary_search_not_found(self):
+        input_arr = [1, 2, 3, 4, 5]
+        input_target = 9
+        expected = False
+        actual = binary_search(input_arr, input_target)
+        self.assertEqual(expected, actual)
+    def test_binary_search_empty(self):
+        input_arr = []
+        input_target = 1
+        expected = False
+        actual = binary_search(input_arr, input_target)
+        self.assertEqual(expected, actual)
+    def test_binary_search_single_element_true(self):
+        self.assertTrue(binary_search([7], 7))
+    def test_binary_search_single_element_false(self):
+        self.assertFalse(binary_search([7], 3))
 
 # ------------------------
 # main()
