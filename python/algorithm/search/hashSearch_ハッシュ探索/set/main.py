@@ -4,7 +4,7 @@ from collections import defaultdict
 from typing import List, Dict, Tuple
 
 # ------------------------
-# ハッシュ探索した結果をboolで返却
+# ハッシュ探索(set)した結果をboolで返却
 # ------------------------
 def hash_search_by_set(arr: List[int], target: int) -> bool:
     s: set = set(arr)
