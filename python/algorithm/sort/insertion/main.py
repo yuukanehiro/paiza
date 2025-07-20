@@ -4,7 +4,7 @@ from collections import defaultdict
 from typing import List, Dict, Tuple
 
 # ------------------------
-# マージソートでList[int]を返却
+# 挿入ソートでList[int]を返却
 # ------------------------
 def insertion_sort(arr: List[int]) -> List[int]:
     for i in range(1, len(arr)):
