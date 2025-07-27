@@ -20,9 +20,9 @@ def insertion_sort(arr: List[int]) -> List[int]:
     return arr
 
 
-# # ------------------------
-# # テストコード（unittest）
-# # ------------------------
+# ------------------------
+# テストコード（unittest）
+# ------------------------
 class TestInsertionSort(unittest.TestCase):
     def test_insertion_sort_case1(self):
         expected = [1, 2, 3, 4, 5, 7, 8, 9, 10, 99]
