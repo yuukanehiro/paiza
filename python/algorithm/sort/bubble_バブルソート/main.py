@@ -4,7 +4,7 @@ from collections import defaultdict
 from typing import List, Dict, Tuple
 
 # ------------------------
-# クイックソートでList[int]を返却
+# バブルソートでList[int]を返却
 # ------------------------
 def bubble_sort(arr: List[int]) -> List[int]:
     n = len(arr)
