@@ -1,6 +1,4 @@
 
-
-
 items1 = [1, 2, 3, 4, 6, 7, 8, 9]
 taraget = 5
 target_index = 4
