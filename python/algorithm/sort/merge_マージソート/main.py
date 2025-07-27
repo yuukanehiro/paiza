@@ -5,6 +5,7 @@ from typing import List, Dict, Tuple
 
 # ------------------------
 # マージソートでList[int]を返却
+# 要素1の[]をleft, rightで作ってそれをMergeしていくソート
 # ------------------------
 def merge_sort(arr: List[int]) -> List[int]:
     if len(arr) <= 1:

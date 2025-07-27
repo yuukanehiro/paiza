@@ -5,6 +5,7 @@ from typing import List, Dict, Tuple
 
 # ------------------------
 # 選択ソートでList[int]を返却
+# iの要素とそれ以外の要素を比べて最小値があれば入れ替えていくソート
 # ------------------------
 def selection_sort(arr: List[int]) -> List[int]:
     n = len(arr)

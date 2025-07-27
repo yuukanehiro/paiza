@@ -5,6 +5,7 @@ from typing import List, Dict, Tuple
 
 # ------------------------
 # バブルソートでList[int]を返却
+# 左端の隣接を比較して最大値を右端から確定していくソート
 # ------------------------
 def bubble_sort(arr: List[int]) -> List[int]:
     n = len(arr)

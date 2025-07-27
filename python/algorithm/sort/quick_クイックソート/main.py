@@ -5,6 +5,7 @@ from typing import List, Dict, Tuple
 
 # ------------------------
 # クイックソートでList[int]を返却
+# pivotを決めてleft, center, rightとして再起的にソートする
 # ------------------------
 def quick_sort(arr: List[int]) -> List[int]:
     if len(arr) <= 1:

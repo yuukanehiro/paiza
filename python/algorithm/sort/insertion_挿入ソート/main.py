@@ -5,6 +5,7 @@ from typing import List, Dict, Tuple
 
 # ------------------------
 # 挿入ソートでList[int]を返却
+# iの要素の挿入位置を順に求めていくソート
 # ------------------------
 def insertion_sort(arr: List[int]) -> List[int]:
     for i in range(1, len(arr)):
