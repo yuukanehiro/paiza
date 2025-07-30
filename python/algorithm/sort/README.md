@@ -13,4 +13,4 @@
 * [シェルソート](https://youtu.be/CJulIZ6121E?si=ghCyl6cNC22SwQsj&t=462)
 * [クイックソート](https://www.youtube.com/watch?v=5UqHsN6GUtc)
 * [マージソート](https://www.youtube.com/watch?v=9pB5oZeD4gA)
-* [ヒープソート](https://www.youtube.com/watch?v=8DIcNEfjfP8)
+* [ヒープソート](https://www.momoyama-usagi.com/entry/heap-sort)
