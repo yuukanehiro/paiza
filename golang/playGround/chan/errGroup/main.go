@@ -79,7 +79,7 @@ func main() {
     close(results)
 }
 
-# Output:
+// Output:
 // Worker 2 started job 2
 // Worker 1 started job 1
 // Worker 2 finished job 2
