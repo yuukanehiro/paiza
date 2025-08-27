@@ -1,0 +1,44 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: sample-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: testdb
+      TZ: Asia/Tokyo
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_0900_ai_ci
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -ppassword --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
+
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: sample-app
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_USER: root
+      DB_PASS: password
+      DB_NAME: testdb
+      DB_CONN_TIMEOUT_SEC: "5"
+      TZ: Asia/Tokyo
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./app:/app
+    command: ["sh", "-c", "go run ."]
+
+volumes:
+  db-data:
