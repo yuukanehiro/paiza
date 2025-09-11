@@ -19,7 +19,13 @@ type Result struct {
 func worker(id int, jobs <-chan Job, results chan<- Result, wg *sync.WaitGroup) {
 	defer wg.Done()
 
-	for job := range jobs {
+	// for {
+	// 	job, ok := <-jobs
+	// 	if !ok {
+	// 		break
+	// 	}
+	// }
+	for job := range jobs { // for ... job, ok := <-jobsと同じ。データがjobs channelを通して「関数に」入ってくる(受信)
 		fmt.Printf("Worker %d processing job %d\n", id, job.ID)
 
 		// Execute task
@@ -30,7 +36,7 @@ func worker(id int, jobs <-chan Job, results chan<- Result, wg *sync.WaitGroup) 
 			Output: fmt.Sprintf("Processed by worker %d: %s", id, job.Data),
 		}
 
-		results <- result
+		results <- result // データが「関数から」results channelに流れていく(送信)
 	}
 
 	fmt.Printf("Worker %d finished\n", id)
@@ -92,7 +98,7 @@ func main() {
 	batchSize := 2
 
 	for result := range results {
-		fmt.Printf("Job %d result: %s\n", result.Job.ID, result.Output)
+		// fmt.Printf("Job %d result: %s\n", result.Job.ID, result.Output)
 		batch = append(batch, result)
 
 		if len(batch) == batchSize {
@@ -114,32 +120,22 @@ func main() {
 
 // Results:
 // Worker 1 processing job 1
-// Worker 3 processing job 3
 // Worker 2 processing job 2
+// Worker 3 processing job 3
 // Worker 3 processing job 4
-// Worker 1 processing job 5
-// Job 3 result: Processed by worker 3: job_3_data
-// Job 1 result: Processed by worker 1: job_1_data
-// Saving batch of 2 results to DB: Job3, Job1
-// Worker 2 processing job 6
-// Job 2 result: Processed by worker 2: job_2_data
-// Worker 3 processing job 7
-// Worker 1 processing job 8
-// Worker 2 processing job 9
-// Job 4 result: Processed by worker 3: job_4_data
-// Saving batch of 2 results to DB: Job2, Job4
-// Job 5 result: Processed by worker 1: job_5_data
-// Job 6 result: Processed by worker 2: job_6_data
-// Saving batch of 2 results to DB: Job5, Job6
-// Worker 2 processing job 10
-// Worker 3 finished
-// Worker 1 finished
-// Job 9 result: Processed by worker 2: job_9_data
-// Job 7 result: Processed by worker 3: job_7_data
+// Worker 2 processing job 5
+// Saving batch of 2 results to DB: Job3Worker 1 processing job 6
+// , Job2
+// Worker 1 processing job 7
+// Worker 3 processing job 9
+// Saving batch of 2 results to DB: Worker 2 processing job 8
+// Job1, Job6
+// Saving batch of 2 results to DB: Job5, Job4
+// Worker 3 processing job 10
 // Saving batch of 2 results to DB: Job9, Job7
-// Job 8 result: Processed by worker 1: job_8_data
+// Worker 1 finished
 // Worker 2 finished
-// Job 10 result: Processed by worker 2: job_10_data
+// Worker 3 finished
 // Saving batch of 2 results to DB: Job8, Job10
 
 // All jobs completed!
