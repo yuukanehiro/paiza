@@ -1,0 +1,8 @@
+
+基本4情報の概略
+https://www.cybertrust.co.jp/blog/certificate-authority/business-process-digitalization/personal-information.html
+
+図解 X.509 証明書
+https://qiita.com/TakahikoKawasaki/items/4c35ac38c52978805c69
+
+

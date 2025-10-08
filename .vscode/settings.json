@@ -1,0 +1,29 @@
+{
+    "go.goroot": "",
+    "go.gopath": "",
+    "go.toolsGopath": "",
+    "go.alternateTools": {
+        "go": "/Users/kanehiroyuu/.goenv/shims/go"
+    },
+    "terminal.integrated.env.osx": {
+        "PATH": "/Users/kanehiroyuu/.goenv/shims:${env:PATH}"
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false,
+        "python": false
+    },
+    "geminicodeassist.inlineSuggestions.enableAuto": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "editor.formatOnSave": true,
+    "[go]": {
+        "editor.defaultFormatter": "golang.go",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "go.formatTool": "gofmt"
+}
