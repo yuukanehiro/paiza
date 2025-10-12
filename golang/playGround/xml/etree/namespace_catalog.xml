@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="http://example.com/library" xmlns:book="http://example.com/book" xmlns:author="http://example.com/author" xmlns:price="http://example.com/price">
+  <book:collection name="技術書コレクション" version="1.0">
+    <book:item id="ns1">
+      <book:title lang="ja">名前空間を使ったXML設計</book:title>
+      <author:info>
+        <author:name>名前空間 太郎</author:name>
+        <author:country>Japan</author:country>
+      </author:info>
+      <price:details>
+        <price:amount currency="JPY">3800</price:amount>
+      </price:details>
+    <book:isbn>978-4-12345-678-9</book:isbn></book:item>
+    <book:item id="ns2">
+      <book:title lang="en">XML Namespaces Guide</book:title>
+      <author:info>
+        <author:name>John Namespace</author:name>
+        <author:country>USA</author:country>
+      </author:info>
+      <price:details>
+        <price:amount currency="USD">45.99</price:amount>
+      </price:details>
+    </book:item>
+  </book:collection>
+</catalog>

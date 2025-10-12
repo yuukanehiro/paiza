@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library name="技術書図書館">
+  <book id="1" category="programming">
+    <title lang="ja">Go言語プログラミング</title>
+    <author>山田太郎</author>
+    <price currency="JPY">3500</price>
+  </book>
+  <book id="3" category="database">
+    <title lang="ja">SQLデータベース入門</title>
+    <author>田中花子</author>
+    <price currency="JPY">2800</price>
+  </book>
+  <book id="4" category="ai">
+    <title lang="ja">機械学習実践ガイド</title>
+    <author>佐藤智子</author>
+    <price currency="JPY">4200</price>
+  </book>
+</library>

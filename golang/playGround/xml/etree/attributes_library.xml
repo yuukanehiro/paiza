@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library name="技術書図書館">
+  <book id="1" category="programming" rating="4" available="false">
+    <title lang="ja">Go言語プログラミング</title>
+    <author>山田太郎</author>
+    <price currency="JPY">3200</price>
+  </book>
+  <book id="2" category="web">
+    <title lang="en">JavaScript Essentials</title>
+    <author>John Doe</author>
+    <price currency="USD">29.99</price>
+  </book>
+  <book id="3" category="database">
+    <title lang="ja">SQLデータベース入門</title>
+    <author>田中花子</author>
+    <price currency="JPY">2800</price>
+  </book>
+</library>

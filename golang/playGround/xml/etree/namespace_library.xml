@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lib:library xmlns:lib="http://library.example.com" xmlns:meta="http://metadata.example.com">
+  <lib:section category="technical">
+    <lib:document id="doc1">
+      <meta:metadata>
+        <meta:created>2024-01-01</meta:created>
+        <meta:modified>2024-10-12</meta:modified>
+      </meta:metadata>
+      <lib:content>名前空間を使ったXMLドキュメントの例</lib:content>
+    </lib:document>
+  </lib:section>
+</lib:library>
